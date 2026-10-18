@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>香港公司周年申报表 (NAR1) 到期日与法定逾期登记附加费计算器 | 86hc.com 开源合规工具</title>
+  <meta name="description" content="依据香港《公司条例》（第622章）第662条及《公司（费用）规例》（第622K章），在线精准计算香港私人股份有限公司周年申报表 (Form NAR1) 法定呈交期限（42日宽限期）及五级逾期登记附加费（HK$105 至 HK$3,480）。">
+  <link rel="canonical" href="https://86hc-compliance.github.io/nar1-late-fee-calculator.html">
+  <style>
+:root {
+  --surface: #ffffff;
+  --surface-sub: #f8fafc;
+  --border-subtle: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --blue: #1d6ff2;
+  --blue-hover: #1558cc;
+  --font-sans: "Inter", "PingFang SC", "PingFang HK", "HarmonyOS Sans SC", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace, "PingFang SC", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--surface-sub);
+  color: var(--text-primary);
+  line-height: 1.68;
+  font-weight: 400;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+header.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.nav-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+.brand { font-size: 17px; font-weight: 600; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.badge-tcsp { font-size: 12px; font-weight: 600; color: #1558cc; background: #eff6ff; border: 1px solid #bfdbfe; padding: 2px 8px; border-radius: 999px; font-family: var(--font-mono); letter-spacing: -0.015em; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13.5px; align-items: center; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); }
+.btn-primary {
+  display: inline-block;
+  background: var(--blue);
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn-primary:hover { background: var(--blue-hover); }
+.btn-secondary {
+  display: inline-block;
+  background: #f5f8fb;
+  color: #0d192b;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid var(--border-subtle);
+}
+.btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+.hero {
+  background: linear-gradient(135deg, rgba(5,150,105,0.04) 0%, rgba(29,111,242,0.03) 60%, var(--surface) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 44px 0 36px;
+}
+h1 { font-size: 28px; font-weight: 500; line-height: 1.32; color: var(--text-primary); margin-bottom: 12px; }
+h2 { font-size: 21px; font-weight: 500; line-height: 1.35; color: var(--text-primary); margin: 28px 0 14px; }
+h3 { font-size: 17px; font-weight: 500; line-height: 1.4; color: var(--text-primary); margin: 16px 0 8px; }
+p { color: var(--text-secondary); margin-bottom: 12px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+}
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 10px; overflow: hidden; margin: 16px 0; font-size: 14px; }
+th { background: var(--surface-sub); color: var(--text-primary); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border-subtle); }
+td { padding: 11px 14px; border-bottom: 1px solid var(--border-subtle); color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+.code-id { font-family: var(--font-mono); font-weight: 500; color: var(--text-primary); letter-spacing: -0.015em; }
+.num-val { font-family: var(--font-sans); font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: -0.025em; color: var(--text-primary); }
+footer.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border-subtle);
+  padding: 36px 0;
+  margin-top: 48px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+footer a { color: #1558cc; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+input, select {
+  padding: 10px 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  background: var(--surface);
+  color: var(--text-primary);
+}
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "香港公司周年申报表 (Form NAR1) 到期日与法定逾期登记附加费计算器",
+    "url": "https://86hc-compliance.github.io/nar1-late-fee-calculator.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "provider": {
+      "@type": "Organization",
+      "name": "恒诚商务有限公司 (HC BUSINESS LIMITED)",
+      "url": "https://www.86hc.com",
+      "identifier": "TC006431"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="https://86hc-compliance.github.io/" class="brand">
+      <span>86HC Compliance Open Portal</span>
+      <span class="badge-tcsp">TCSP: TC006431</span>
+    </a>
+    <nav class="nav-links">
+      <a href="https://86hc-compliance.github.io/">CR/BRN 校验器</a>
+      <a href="https://86hc-compliance.github.io/nar1-late-fee-calculator.html">NAR1 逾期计算器</a>
+      <a href="https://86hc-compliance.github.io/hk-bank-clearing-swift-codes.html">香港银行清算代码</a>
+      <a href="https://86hc-compliance.github.io/hk-bank-account-opening-comparison.html">银行开户对比</a>
+      <a href="https://86hc-compliance.github.io/hk-companies-registry-forms-nar1-nnc1.html">Cap.622 法定表格</a>
+      <a href="https://86hc-compliance.github.io/hk-litigation-winding-up-due-diligence.html">司法涉诉与清盘</a>
+      <a href="https://86hc-compliance.github.io/hk-32-regulatory-licences-directory.html">32家监管牌照</a>
+      <a href="https://86hc-compliance.github.io/tc/">繁體</a>
+      <a href="https://86hc-compliance.github.io/en/">EN</a>
+      <a href="https://www.86hc.com" class="btn-primary">访问 86hc.com 查册主站</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>香港公司周年申报表 (Form NAR1) 到期日与法定逾期登记附加费计算器</h1>
+    <p>依据香港《公司条例》（第622章）第662条及《公司（费用）规例》（第622K章），香港私人股份有限公司须于成立周年日后 <strong>42 日内</strong>向香港公司注册处（CR）呈交周年申报表（Form NAR1）。输入公司成立日期，即可实时核算本年度结算日、法定最后呈交日及当前应缴法定登记费。</p>
+    <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="https://www.86hc.com/nar1-filing" class="btn-primary">在线办理 NAR1 周年申报表呈交</a>
+      <a href="https://www.86hc.com/company-search" class="btn-secondary">查询企业成立日期与申报现状</a>
+      <a href="https://www.86hc.com/icris" class="btn-secondary">调阅历年已存盘 NAR1 原件</a>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding-top:28px;">
+  <div class="card">
+    <h2 style="margin-top:0;">一、 NAR1 周年申报表期限与规费实时计算器</h2>
+    <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:flex-end; margin-top:14px;">
+      <div>
+        <label for="incDate" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">公司成立日期 / 最近一次周年日：</label>
+        <input type="date" id="incDate" value="2025-11-15">
+      </div>
+      <div>
+        <label for="filingDate" style="display:block; font-size:13px; font-weight:600; margin-bottom:6px;">拟向公司注册处呈交日期：</label>
+        <input type="date" id="filingDate">
+      </div>
+      <button type="button" class="btn-primary" onclick="calcNAR1()">立即核算 NAR1 规费与期限</button>
+    </div>
+    <div id="calcResult" style="margin-top:20px; padding:18px; background:var(--surface-sub); border:1px solid var(--border-subtle); border-radius:10px;">
+      请选择公司成立周年日以计算 42 日法定呈交期限与对应规费阶梯。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0;">二、 香港《公司（费用）规例》（第622K章）NAR1 法定登记费阶梯表</h2>
+    <p>根据香港公司注册处法定标准，私人股份有限公司逾期呈交周年申报表（Form NAR1）须按交付时间缴付大幅递增的法定逾期登记附加费（Higher Registration Fee）：</p>
+    <table>
+      <thead>
+        <tr>
+          <th>交付周年申报表 (NAR1) 时间区间（自申报表结算日起计）</th>
+          <th>法定状态</th>
+          <th>电子/印本登记规费 (HKD)</th>
+          <th>法例依据与风险说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>结算日后 <strong>42 日或以内</strong></td>
+          <td>合规准时呈交</td>
+          <td class="num-val">HK$ 105</td>
+          <td>《公司条例》（第622章）第662条标准登记费</td>
+        </tr>
+        <tr>
+          <td>超过 42 日，但于 <strong>3 个月或以内</strong></td>
+          <td>一级逾期附加费</td>
+          <td class="num-val">HK$ 870</td>
+          <td>逾期登记附加费，须尽快由 <a href="https://www.86hc.com/company-secretary">香港持牌公司秘书</a> 补交</td>
+        </tr>
+        <tr>
+          <td>超过 3 个月，但于 <strong>6 个月或以内</strong></td>
+          <td>二级逾期附加费</td>
+          <td class="num-val">HK$ 1,740</td>
+          <td>银行账户年度 KYB 复核可能触发账户受限预警</td>
+        </tr>
+        <tr>
+          <td>超过 6 个月，但于 <strong>9 个月或以内</strong></td>
+          <td>三级逾期附加费</td>
+          <td class="num-val">HK$ 2,610</td>
+          <td>公司注册处将发出法定催办及失责通知</td>
+        </tr>
+        <tr>
+          <td><strong>超过 9 个月</strong></td>
+          <td>最高逾期附加费 + 检控风险</td>
+          <td class="num-val">HK$ 3,480</td>
+          <td>除 HK$3,480 规费外，公司及每名责任人可被处失责罚款（每次最高 HK$50,000 及按日罚款 HK$1,000）</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;">💡 <strong>同步合规提醒</strong>：除向公司注册处呈交 <a href="https://www.86hc.com/nar1-filing">周年申报表 (NAR1)</a> 外，香港法团还须根据《商业登记条例》（第310章）于成立周年日后 1 个月内向税务局商业登记署换领新年度 <a href="https://www.86hc.com/business-registration-search">商业登记证 (BRC)</a>（逾期加征 HK$300 法定罚款），并持续更新 <a href="https://www.86hc.com/scr-compliance">重要控制人登记册 (SCR)</a>。</p>
+  </div>
+</main>
+
+<script>
+document.getElementById('filingDate').valueAsDate = new Date();
+function calcNAR1() {
+  const incStr = document.getElementById('incDate').value;
+  const filStr = document.getElementById('filingDate').value;
+  if (!incStr || !filStr) return;
+  const inc = new Date(incStr + 'T00:00:00');
+  const fil = new Date(filStr + 'T00:00:00');
+  const diffDays = Math.floor((fil - inc) / (1000 * 60 * 60 * 24));
+  const due42 = new Date(inc.getTime() + 42 * 86400000).toISOString().slice(0, 10);
+  let fee = 105, tier = '准时合规呈交（42日法定宽限期内）';
+  if (diffDays > 270) { fee = 3480; tier = '超过 9 个月（四级最高法定逾期附加费 + 法院传票检控风险）'; }
+  else if (diffDays > 180) { fee = 2610; tier = '超过 6 个月但不超过 9 个月（三级逾期登记附加费）'; }
+  else if (diffDays > 90) { fee = 1740; tier = '超过 3 个月但不超过 6 个月（二级逾期登记附加费）'; }
+  else if (diffDays > 42) { fee = 870; tier = '超过 42 日但不超过 3 个月（一级逾期登记附加费）'; }
+  document.getElementById('calcResult').innerHTML =
+    '<strong>核算结果：</strong>距申报表结算日已过 <span class="num-val">' + Math.max(0, diffDays) + '</span> 日 · 42日法定截止日：<span class="code-id">' + due42 + '</span><br>' +
+    '当前档位：<strong>' + tier + '</strong> · 公司注册处法定规费：<span class="num-val" style="font-size:18px;color:#1d6ff2;">HK$ ' + fee.toLocaleString() + '</span> ' +
+    '— <a href="https://www.86hc.com/nar1-filing" style="color:#1558cc;font-weight:600;">前往 86hc.com 委托持牌秘书 (TC006431) 加急申报 →</a>';
+}
+calcNAR1();
+</script>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid-3" style="margin-bottom:20px;">
+      <div>
+        <h3 style="margin-top:0;">关于恒诚商务 (HC BUSINESS LIMITED)</h3>
+        <p>香港企业查册与商业尽职调查平台（<a href="https://www.86hc.com">www.86hc.com</a>）官方开源技术门户。持有香港公司注册处信托或公司服务提供者牌照（TCSP 牌照编号：<span class="code-id">TC006431</span>，商业登记号码 BRN / UBI：<span class="code-id">66820292</span>）。</p>
+        <p>办公地址：香港尖沙咀漆咸道南45-51号其士大厦8楼801室<br>电话：+852 2136 1626 / 400 030 1888 · 邮箱：<a href="mailto:support@86hc.com">support@86hc.com</a></p>
+      </div>
+      <div>
+        <h3 style="margin-top:0;">核心查册与法定调卷入口</h3>
+        <p style="line-height:1.9;">
+          <a href="https://www.86hc.com/company-search">香港公司查册中心</a> ·
+          <a href="https://www.86hc.com/icris">ICRIS 官方存盘调卷</a> ·
+          <a href="https://www.86hc.com/business-registration-search">商业登记证 (BRC) 查册</a> ·
+          <a href="https://www.86hc.com/director-shareholder-search">董事股东与 UBO 查册</a> ·
+          <a href="https://www.86hc.com/litigation-search">香港司法涉诉与清盘排查</a> ·
+          <a href="https://www.86hc.com/due-diligence">商业尽职调查</a> ·
+          <a href="https://www.86hc.com/credit-report">360° 企业资信报告</a> ·
+          <a href="https://www.86hc.com/certified-copy">CPA 核证副本 (CTC)</a>
+        </p>
+      </div>
+      <div>
+        <h3 style="margin-top:0;">秘书合规、银行开户与开源组件</h3>
+        <p style="line-height:1.9;">
+          <a href="https://www.86hc.com/nar1-filing">周年申报表 (NAR1) 申报</a> ·
+          <a href="https://www.86hc.com/company-secretary">香港持牌公司秘书</a> ·
+          <a href="https://www.86hc.com/scr-compliance">重要控制人登记册 (SCR)</a> ·
+          <a href="https://www.86hc.com/bank-account-opening">香港银行公司开户</a> ·
+          <a href="https://www.86hc.com/hsbc-account-opening">汇丰银行开户</a> ·
+          <a href="https://www.86hc.com/ocbc-account-opening">华侨银行开户</a> ·
+          <a href="https://github.com/86hc-compliance">GitHub 组织</a> ·
+          <a href="https://pkg.go.dev/github.com/86hc-compliance/hk-company-registry-validator">pkg.go.dev</a> ·
+          <a href="https://packagist.org/packages/86hc/hk-company-registry-validator">Packagist</a>
+        </p>
+      </div>
+    </div>
+    <p style="border-top:1px solid var(--border-subtle); padding-top:14px; font-size:12.5px;">
+      © 2026 恒诚商务有限公司 (HC BUSINESS LIMITED) · 商业登记号码 BRN: <span class="code-id">66820292</span> · TCSP 牌照: <span class="code-id">TC006431</span> · 遵循香港《公司条例》（第622章）及《商业登记条例》（第310章）规范。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
