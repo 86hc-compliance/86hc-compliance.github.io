@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>香港公司编号 (CR No.) 与商业登记号码 (BRN/UBI) 在线校验工具 · 86HC 恒诚合规开放门户</title>
+  <meta name="description" content="由香港持牌信托或公司服务提供者恒诚商务 (HC BUSINESS LIMITED, TCSP牌照: TC006431, BRN: 66820292) 提供的香港公司注册编号 (CR No.)、8位商业登记号码 (BRN)、唯一业务识别码 (UBI) 在线格式校验器及香港持牌银行清算编号速查门户。">
+  <link rel="canonical" href="https://86hc-compliance.github.io/">
+  <meta property="og:title" content="香港公司编号 (CR No.) 与商业登记号码 (BRN/UBI) 校验门户 · 86HC">
+  <meta property="og:description" content="香港法团识别码格式实时校验、法定申报表 NAR1/NNC1 速查、持牌银行清算代码及 32 家监管机构名册直联导航。">
+  <meta property="og:url" content="https://86hc-compliance.github.io/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.86hc.com/#organization",
+        "name": "恒诚商务有限公司 / HC BUSINESS LIMITED",
+        "alternateName": ["86hc.com", "86HC", "恒诚查册", "HC Corporate Intelligence"],
+        "url": "https://www.86hc.com/",
+        "taxID": "66820292",
+        "telephone": "+852 2136 1626",
+        "email": "support@86hc.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ROOM 801, CHEVALIER HOUSE, 45-51 CHATHAM ROAD SOUTH",
+          "addressLocality": "TSIM SHA TSUI",
+          "addressRegion": "HONG KONG",
+          "addressCountry": "HK"
+        },
+        "sameAs": [
+          "https://www.86hc.com/",
+          "https://hc.biz/",
+          "https://github.com/86hc-compliance",
+          "https://www.tcsp.cr.gov.hk/tcspls/search/public-search?k=TC006431",
+          "https://www.crunchbase.com/organization/hc-business-limited"
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "86HC 香港公司编号 (CR No.) 与商业登记证 (BRN/UBI) 格式校验器",
+        "url": "https://86hc-compliance.github.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "publisher": {
+          "@id": "https://www.86hc.com/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --font-sans: "Inter", "PingFang SC", "HarmonyOS Sans SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "PingFang SC", monospace;
+      --surface: #ffffff;
+      --surface-sub: #f8fafc;
+      --border-subtle: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --blue: #1d6ff2;
+      --blue-hover: #1558cc;
+      --blue-active: #0e46a8;
+      --emerald: #059669;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--surface-sub);
+      color: var(--text-primary);
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    .brand-badge {
+      background: var(--blue);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: -0.01em;
+    }
+    .brand-title {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1d6ff2;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 2px 8px rgba(29, 111, 242, 0.22);
+    }
+    .btn-primary:hover {
+      background-color: #1558cc;
+    }
+    .btn-primary:active {
+      background-color: #0e46a8;
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f8fb;
+      color: #0d192b;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      text-decoration: none;
+      transition: all 0.18s ease;
+    }
+    .btn-secondary:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(5,150,105,0.04) 0%, rgba(29,111,242,0.03) 60%, var(--surface, #ffffff) 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 52px 0 44px;
+    }
+    .credential-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+    .code-mono {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.015em;
+      font-weight: 500;
+    }
+    h1 {
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.32;
+      letter-spacing: 0;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 15px;
+      max-width: 820px;
+      margin-bottom: 28px;
+    }
+    .validator-box {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .validator-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .input-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .input-field {
+      flex: 1;
+      min-width: 240px;
+      padding: 11px 16px;
+      font-size: 15px;
+      font-family: var(--font-mono);
+      letter-spacing: -0.015em;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      outline: none;
+      color: var(--text-primary);
+      background: var(--surface-sub);
+    }
+    .input-field:focus {
+      border-color: var(--blue);
+      background: var(--surface);
+    }
+    .result-panel {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 8px;
+      background: var(--surface-sub);
+      border: 1px solid var(--border-subtle);
+      display: none;
+    }
+    .result-panel.active {
+      display: block;
+    }
+    .section {
+      padding: 44px 0;
+    }
+    h2 {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    .section-sub {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.18s ease, transform 0.18s ease;
+    }
+    .card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    .card p {
+      color: var(--text-secondary);
+      font-size: 13.5px;
+      margin-bottom: 16px;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+      font-size: 13px;
+    }
+    .card-link {
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .card-link:hover {
+      text-decoration: underline;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+      font-variant-numeric: tabular-nums;
+    }
+    th {
+      background: var(--surface-sub);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 13px;
+    }
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+      padding: 36px 0;
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-bar">
+      <a href="https://www.86hc.com" class="brand">
+        <span class="brand-badge">86HC</span>
+        <span class="brand-title">恒诚商务 · 香港企业查册与商业合规开放门户</span>
+      </a>
+      <nav class="nav-links">
+        <a href="https://www.86hc.com" class="btn-secondary">简体中文 (/)</a>
+        <a href="https://www.86hc.com/tc/" class="btn-secondary">繁體中文 (/tc/)</a>
+        <a href="https://www.86hc.com/en/" class="btn-secondary">English (/en/)</a>
+        <a href="https://github.com/86hc-compliance" class="btn-secondary">GitHub 组织</a>
+        <a href="https://www.86hc.com/company-search" class="btn-primary">进入香港公司查册中心 →</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="credential-pills">
+        <span class="pill">香港持牌 TCSP：<span class="code-mono">TC006431</span></span>
+        <span class="pill">商业登记号码 (BRN)：<span class="code-mono">66820292</span></span>
+        <span class="pill">唯一业务识别码 (UBI)：<span class="code-mono">66820292-000</span></span>
+        <span class="pill">覆盖规模：390万+ 香港法团 · 32 家监管机构</span>
+      </div>
+      <h1>香港法团识别码 (CR No. / BRN / UBI) 在线校验与合规基准门户</h1>
+      <p class="hero-desc">
+        本门户由 <strong>恒诚商务有限公司 (HC BUSINESS LIMITED)</strong> 开源维护，严格依循香港法例第 622 章《公司条例》及第 310 章《商业登记条例》，提供香港公司注册编号、8 位商业登记号码、唯一业务识别码实时校验及全站合规查册导航。
+      </p>
+
+      <div class="validator-box">
+        <div class="validator-title">🔍 香港公司编号 (CR No.) / 商业登记号码 (BRN / UBI) 格式实时校验器</div>
+        <div class="input-row">
+          <input type="text" id="identInput" class="input-field" placeholder="输入 7-8 位公司编号 (如 2837074) 或 8 位商业登记号 (如 66820292)" value="66820292">
+          <button type="button" class="btn-primary" onclick="runValidation()">立即校验格式</button>
+          <a href="https://www.86hc.com/business-registration-search" class="btn-secondary">商业登记证实时核验</a>
+        </div>
+        <div id="resultPanel" class="result-panel active"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>一、香港企业查册、存盘卷宗调阅与尽职调查矩阵</h2>
+      <p class="section-sub">直联 86HC 官方检索平台，调阅香港公司注册处 (CR)、商业登记署 (BRO) 及司法机构法定存盘记录。</p>
+      <div class="grid">
+        <div class="card">
+          <div>
+            <h3>香港公司查册中心 (Company Search)</h3>
+            <p>查询全港 390 万+ 现存与历史法团法定名称、7-8 位公司编号 (CR No.)、成立日期及法团现存状态（仍注册 Live / 解散 Dissolved）。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">Cap. 622</span>
+            <a href="https://www.86hc.com/company-search" class="card-link">前往查册中心 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>商业登记证查册核验 (BRC / BRN Search)</h3>
+            <p>核验香港税务局商业登记署核发之 8 位商业登记号码 (BRN)、唯一业务识别码 (UBI)、分行登记代码及现行有效性。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">Cap. 310</span>
+            <a href="https://www.86hc.com/business-registration-search" class="card-link">核验商业登记号码 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>官方存盘卷宗调阅与样张 (Statutory Dossier)</h3>
+            <p>在线调阅带真实 ICRIS 条形码的周年申报表 (Form NAR1)、法团成立表格 (Form NNC1)、董事及秘书变更 (Form ND2A) 等正本卷宗。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">NAR1 / NNC1 / ND2A</span>
+            <a href="https://www.86hc.com/samples" class="card-link">查看官方卷宗样张 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>董事及股东穿透查册 (Director &amp; Shareholder)</h3>
+            <p>穿透查询自然人或法人董事在香港关联任职企业、持股比例明细及最终实益拥有人 (UBO) 股权链条。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">KYC / UBO</span>
+            <a href="https://www.86hc.com/director-shareholder-search" class="card-link">穿透查询董事股东 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>香港诉讼与强制清盘查册 (Litigation Search)</h3>
+            <p>排查香港高等法院、区域法院商业诉讼传票记录及破产管理署 (ORO) 强制清盘呈请与破产命令。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">Cap. 32 ORO</span>
+            <a href="https://www.86hc.com/litigation-search" class="card-link">排查涉诉与清盘 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>企业深度尽职调查与信用报告 (Due Diligence)</h3>
+            <p>面向跨境并购、大宗贸易授信与金融机构风控的机构级商业尽职调查报告与企业信用评级报告。</p>
+          </div>
+          <div class="card-footer">
+            <span><a href="https://www.86hc.com/credit-report" class="card-link">企业信用报告</a></span>
+            <a href="https://www.86hc.com/due-diligence" class="card-link">商业尽职调查 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 8px;">
+    <div class="container">
+      <h2>二、持牌 TCSP 法团设立、周年申报合规与商业银行开户</h2>
+      <p class="section-sub">依托香港公司注册处持牌信托或公司服务提供者资质（TCSP 牌照编号：TC006431），提供全生命周期法定托管。</p>
+      <div class="grid">
+        <div class="card">
+          <div>
+            <h3>香港法团设立登记 (Company Incorporation)</h3>
+            <p>一站式办理香港私人股份有限公司设立、法团成立表格 (Form NNC1) 编制、章程细则拟定、公司注册证书 (CI) 及商业登记证申领。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">Form NNC1</span>
+            <a href="https://www.86hc.com/company-incorporation" class="card-link">办理公司设立 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>法定公司秘书与周年申报 (Annual Return NAR1)</h3>
+            <p>担任香港法定公司秘书、按期编制呈交周年申报表 (Form NAR1)、续期换领商业登记证 (BRC) 及备存重要控制人登记册 (SCR)。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">Form NAR1 · SCR</span>
+            <a href="https://www.86hc.com/company-annual-return" class="card-link">办理周年申报合规 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>法团信息与股权变更 (Company Alteration)</h3>
+            <p>依法办理董事及公司秘书委任辞任 (ND2A)、股份配发扩股 (NSC1)、注册办事处地址迁址 (NR1) 及更改公司名称 (NNC2)。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">ND2A / NSC1 / NR1</span>
+            <a href="https://www.86hc.com/company-alteration" class="card-link">办理法团变更 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>香港持牌商业银行开户预审 (Bank Onboarding)</h3>
+            <p>汇丰银行 (HSBC)、华侨银行 (OCBC)、中银香港 (BOCHK)、恒生、星展等商业账户开户材料预审与授权渠道预约转介。</p>
+          </div>
+          <div class="card-footer">
+            <span><a href="https://www.86hc.com/hsbc-account-opening" class="card-link">汇丰开户</a> · <a href="https://www.86hc.com/ocbc-account-opening" class="card-link">华侨开户</a></span>
+            <a href="https://www.86hc.com/open-bank-account" class="card-link">银行开户总览 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>香港银行开户与维护指南专栏 (Banking Guides)</h3>
+            <p>涵盖香港各大持牌银行开户条件、注册地址风控排查、日常防关户维护及汇丰 ASD010 银行审计询证函实操标准。</p>
+          </div>
+          <div class="card-footer">
+            <span class="code-mono">ASD010 · KYC</span>
+            <a href="https://www.86hc.com/banking-guides" class="card-link">阅读银行指南专栏 →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>香港商业地址中英核验工具 &amp; ICRIS 导览</h3>
+            <p>香港注册办事处中英文标准地址转换校验、全港商业大厦名录、港交所上市公司名录及 ICRIS 网上查册导览。</p>
+          </div>
+          <div class="card-footer">
+            <span><a href="https://www.86hc.com/icris" class="card-link">ICRIS 专页</a> · <a href="https://www.86hc.com/listed" class="card-link">上市公司</a></span>
+            <a href="https://www.86hc.com/address-tool" class="card-link">地址核验工具 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 8px;">
+    <div class="container">
+      <h2>三、香港持牌商业银行清算编号 (Clearing Code) &amp; 法定监管牌照速查表</h2>
+      <p class="section-sub">支持跨境汇款、FPS 转数快及审计询证函核验的香港主流持牌银行法定编号对照表。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>银行编号 (Clearing Code)</th>
+            <th>SWIFT BIC</th>
+            <th>持牌银行法定名称</th>
+            <th>监管牌照类别</th>
+            <th>开户与合规实操指南</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="code-mono">004</td>
+            <td class="code-mono">HSBCHKHHHKH</td>
+            <td>香港上海汇丰银行有限公司 (HSBC HK)</td>
+            <td>持牌银行（发钞银行）</td>
+            <td><a href="https://www.86hc.com/hsbc-account-opening" class="card-link">汇丰开户专页</a> · <a href="https://www.86hc.com/banking-guides/hsbc-bank-confirmation" class="card-link">ASD010 询证函</a></td>
+          </tr>
+          <tr>
+            <td class="code-mono">012</td>
+            <td class="code-mono">BKCHHKHHXXX</td>
+            <td>中国银行(香港)有限公司 (BOCHK)</td>
+            <td>持牌银行（发钞行及人民币清算行）</td>
+            <td><a href="https://www.86hc.com/banking-guides/open-boc-hk-account" class="card-link">中银香港开户指南</a></td>
+          </tr>
+          <tr>
+            <td class="code-mono">003</td>
+            <td class="code-mono">SCBLHKHHXXX</td>
+            <td>渣打银行(香港)有限公司 (Standard Chartered)</td>
+            <td>持牌银行（发钞银行）</td>
+            <td><a href="https://www.86hc.com/banking-guides/open-standard-chartered-hk-account" class="card-link">渣打香港开户指南</a></td>
+          </tr>
+          <tr>
+            <td class="code-mono">024</td>
+            <td class="code-mono">HASEHKHHXXX</td>
+            <td>恒生银行有限公司 (Hang Seng Bank)</td>
+            <td>持牌银行</td>
+            <td><a href="https://www.86hc.com/banking-guides/open-hang-seng-bank" class="card-link">恒生银行开户指南</a></td>
+          </tr>
+          <tr>
+            <td class="code-mono">035</td>
+            <td class="code-mono">OCBCHKHHXXX</td>
+            <td>华侨银行(香港)有限公司 (OCBC HK)</td>
+            <td>持牌银行</td>
+            <td><a href="https://www.86hc.com/ocbc-account-opening" class="card-link">华侨开户专页</a> · <a href="https://www.86hc.com/banking-guides/open-ocbc-bank" class="card-link">开户指南</a></td>
+          </tr>
+          <tr>
+            <td class="code-mono">016</td>
+            <td class="code-mono">DHBKHKHHXXX</td>
+            <td>星展银行(香港)有限公司 (DBS HK)</td>
+            <td>持牌银行</td>
+            <td><a href="https://www.86hc.com/banking-guides/open-dbs-hk-account" class="card-link">星展香港开户指南</a></td>
+          </tr>
+          <tr>
+            <td class="code-mono">387 / 389</td>
+            <td class="code-mono">ZABKHKHH / MOXBHKHH</td>
+            <td>众安银行 (ZA Bank) / Mox Bank Limited</td>
+            <td>香港金管局持牌数字银行</td>
+            <td><a href="https://www.86hc.com/banking-guides/open-za-bank" class="card-link">ZA Bank 指南</a> · <a href="https://www.86hc.com/banking-guides/open-mox-bank-account" class="card-link">Mox 指南</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="https://www.86hc.com/regulator" class="btn-secondary">🏛️ 香港 32 家监管名册总览</a>
+        <a href="https://www.86hc.com/tc/regulator/sfc" class="btn-secondary">证监会 (SFC) 持牌名册</a>
+        <a href="https://www.86hc.com/tc/regulator/hkma" class="btn-secondary">金管局 (HKMA) 认可机构</a>
+        <a href="https://www.86hc.com/tc/regulator/tcsp" class="btn-secondary">公司注册处 TCSP 名册</a>
+        <a href="https://www.86hc.com/tc/regulator/customs-mso" class="btn-secondary">香港海关 MSO 牌照名册</a>
+        <a href="https://www.86hc.com/building" class="btn-secondary">全港商业大厦名录</a>
+        <a href="https://www.86hc.com/naming" class="btn-secondary">香港公司字号库</a>
+        <a href="https://www.86hc.com/archive" class="btn-secondary">历年成立法团年鉴</a>
+        <a href="https://www.86hc.com/insights" class="btn-secondary">商业合规洞察专栏</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p><strong>恒诚商务有限公司 / HC BUSINESS LIMITED</strong> · 香港公司注册处持牌信托或公司服务提供者（<a href="https://www.tcsp.cr.gov.hk/tcspls/search/public-search?k=TC006431" class="card-link">TCSP 牌照编号：TC006431</a>） · 商业登记号码 (BRN)：<span class="code-mono">66820292</span>（UBI：<span class="code-mono">66820292-000</span>）</p>
+      <p style="margin-top: 6px;">香港注册办事处地址：香港尖沙咀漆咸道南 45-51 号其士大厦 8 楼 801 室 (ROOM 801, CHEVALIER HOUSE, 45-51 CHATHAM ROAD SOUTH, TSIM SHA TSUI, HONG KONG)</p>
+      <p style="margin-top: 6px;">官方电话：<span class="code-mono">+852 2136 1626</span>（香港总部） / <span class="code-mono">400 030 1888</span>（内地免费专线） · 电子邮箱：<a href="mailto:support@86hc.com" class="card-link">support@86hc.com</a> · 官方网站：<a href="https://www.86hc.com" class="card-link">https://www.86hc.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function runValidation() {
+      var raw = (document.getElementById('identInput').value || '').trim();
+      var panel = document.getElementById('resultPanel');
+      panel.className = 'result-panel active';
+      if (!raw) {
+        panel.innerHTML = '⚠️ 请输入香港 7-8 位公司编号 (CR No.) 或 8 位商业登记号码 (BRN)。';
+        return;
+      }
+      var clean = raw.replace(/[-\s]/g, '');
+      if (/^[Cc]\d{7,8}$/.test(raw)) {
+        var crPart = raw.substring(1);
+        panel.innerHTML = 'ℹ️ <strong>未申领商业登记证临时替代号 (C+CR)</strong>：识别到公司编号 <span class="code-mono">' + crPart + '</span>，标准归档路由为 <span class="code-mono">/brn-c' + crPart + '</span>。 <a href="https://www.86hc.com/?s=' + encodeURIComponent(crPart) + '" class="card-link">前往 86hc.com 检索该法团 →</a>';
+        return;
+      }
+      if (/^\d{8}$/.test(clean) || /^\d{8}-\d{3}$/.test(raw)) {
+        var base = clean.substring(0, 8);
+        var branch = clean.length >= 11 ? clean.substring(8, 11) : '000';
+        panel.innerHTML = '✅ <strong>有效格式（8 位商业登记号码 BRN / 唯一业务识别码 UBI 或 8 位 CR 号）</strong>：基础号码 <span class="code-mono">' + base + '</span> ｜ 标准 UBI 格式 <span class="code-mono">' + base + '-' + branch + '</span> ｜ 标准商业登记路由 <span class="code-mono">/brn-' + base + '</span>。 <a href="https://www.86hc.com/?s=' + encodeURIComponent(base) + '" class="card-link">前往 86hc.com 调阅官方登记记录 →</a>';
+        return;
+      }
+      if (/^\d{7}$/.test(clean)) {
+        var padded = '0' + clean;
+        panel.innerHTML = '✅ <strong>有效香港公司注册编号 (7 位历史 CR No.)</strong>：原始编号 <span class="code-mono">' + clean + '</span> ｜ ICRIS 8 位补零格式 <span class="code-mono">' + padded + '</span>。 <a href="https://www.86hc.com/?s=' + encodeURIComponent(clean) + '" class="card-link">前往 86hc.com 查询该法团存续状态 →</a>';
+        return;
+      }
+      panel.innerHTML = '❌ <strong>格式不符合标准</strong>：香港公司编号须为 7-8 位纯数字，商业登记号码须包含 8 位基础数字（如 <span class="code-mono">66820292</span> 或 <span class="code-mono">66820292-000</span>）。 <a href="https://www.86hc.com/company-search" class="card-link">按公司名称模糊查册 →</a>';
+    }
+    runValidation();
+  </script>
+</body>
+</html>
