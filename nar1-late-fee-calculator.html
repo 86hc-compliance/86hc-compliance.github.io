@@ -155,7 +155,7 @@ input, select {
     <h1>香港公司周年申报表 (Form NAR1) 到期日与法定逾期登记附加费计算器</h1>
     <p>依据香港《公司条例》（第622章）第662条及《公司（费用）规例》（第622K章），香港私人股份有限公司须于成立周年日后 <strong>42 日内</strong>向香港公司注册处（CR）呈交周年申报表（Form NAR1）。输入公司成立日期，即可实时核算本年度结算日、法定最后呈交日及当前应缴法定登记费。</p>
     <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
-      <a href="https://www.86hc.com/nar1-filing" class="btn-primary">在线办理 NAR1 周年申报表呈交</a>
+      <a href="https://www.86hc.com/company-annual-return" class="btn-primary">在线办理 NAR1 周年申报表呈交</a>
       <a href="https://www.86hc.com/company-search" class="btn-secondary">查询企业成立日期与申报现状</a>
       <a href="https://www.86hc.com/icris" class="btn-secondary">调阅历年已存盘 NAR1 原件</a>
     </div>
@@ -204,7 +204,7 @@ input, select {
           <td>超过 42 日，但于 <strong>3 个月或以内</strong></td>
           <td>一级逾期附加费</td>
           <td class="num-val">HK$ 870</td>
-          <td>逾期登记附加费，须尽快由 <a href="https://www.86hc.com/company-secretary">香港持牌公司秘书</a> 补交</td>
+          <td>逾期登记附加费，须尽快由 <a href="https://www.86hc.com/hong-kong-company">香港持牌公司秘书</a> 补交</td>
         </tr>
         <tr>
           <td>超过 3 个月，但于 <strong>6 个月或以内</strong></td>
@@ -226,7 +226,7 @@ input, select {
         </tr>
       </tbody>
     </table>
-    <p style="margin-top:12px;">💡 <strong>同步合规提醒</strong>：除向公司注册处呈交 <a href="https://www.86hc.com/nar1-filing">周年申报表 (NAR1)</a> 外，香港法团还须根据《商业登记条例》（第310章）于成立周年日后 1 个月内向税务局商业登记署换领新年度 <a href="https://www.86hc.com/business-registration-search">商业登记证 (BRC)</a>（逾期加征 HK$300 法定罚款），并持续更新 <a href="https://www.86hc.com/scr-compliance">重要控制人登记册 (SCR)</a>。</p>
+    <p style="margin-top:12px;">💡 <strong>同步合规提醒</strong>：除向公司注册处呈交 <a href="https://www.86hc.com/company-annual-return">周年申报表 (NAR1)</a> 外，香港法团还须根据《商业登记条例》（第310章）于成立周年日后 1 个月内向税务局商业登记署换领新年度 <a href="https://www.86hc.com/business-registration-search">商业登记证 (BRC)</a>（逾期加征 HK$300 法定罚款），并持续更新 <a href="https://www.86hc.com/company-alteration">重要控制人登记册 (SCR)</a>。</p>
   </div>
 </main>
 
@@ -248,7 +248,7 @@ function calcNAR1() {
   document.getElementById('calcResult').innerHTML =
     '<strong>核算结果：</strong>距申报表结算日已过 <span class="num-val">' + Math.max(0, diffDays) + '</span> 日 · 42日法定截止日：<span class="code-id">' + due42 + '</span><br>' +
     '当前档位：<strong>' + tier + '</strong> · 公司注册处法定规费：<span class="num-val" style="font-size:18px;color:#1d6ff2;">HK$ ' + fee.toLocaleString() + '</span> ' +
-    '— <a href="https://www.86hc.com/nar1-filing" style="color:#1558cc;font-weight:600;">前往 86hc.com 委托持牌秘书 (TC006431) 加急申报 →</a>';
+    '— <a href="https://www.86hc.com/company-annual-return" style="color:#1558cc;font-weight:600;">前往 86hc.com 委托持牌秘书 (TC006431) 加急申报 →</a>';
 }
 calcNAR1();
 </script>
@@ -271,16 +271,16 @@ calcNAR1();
           <a href="https://www.86hc.com/litigation-search">香港司法涉诉与清盘排查</a> ·
           <a href="https://www.86hc.com/due-diligence">商业尽职调查</a> ·
           <a href="https://www.86hc.com/credit-report">360° 企业资信报告</a> ·
-          <a href="https://www.86hc.com/certified-copy">CPA 核证副本 (CTC)</a>
+          <a href="https://www.86hc.com/samples">CPA 核证副本 (CTC)</a>
         </p>
       </div>
       <div>
         <h3 style="margin-top:0;">秘书合规、银行开户与开源组件</h3>
         <p style="line-height:1.9;">
-          <a href="https://www.86hc.com/nar1-filing">周年申报表 (NAR1) 申报</a> ·
-          <a href="https://www.86hc.com/company-secretary">香港持牌公司秘书</a> ·
-          <a href="https://www.86hc.com/scr-compliance">重要控制人登记册 (SCR)</a> ·
-          <a href="https://www.86hc.com/bank-account-opening">香港银行公司开户</a> ·
+          <a href="https://www.86hc.com/company-annual-return">周年申报表 (NAR1) 申报</a> ·
+          <a href="https://www.86hc.com/hong-kong-company">香港持牌公司秘书</a> ·
+          <a href="https://www.86hc.com/company-alteration">重要控制人登记册 (SCR)</a> ·
+          <a href="https://www.86hc.com/open-bank-account">香港银行公司开户</a> ·
           <a href="https://www.86hc.com/hsbc-account-opening">汇丰银行开户</a> ·
           <a href="https://www.86hc.com/ocbc-account-opening">华侨银行开户</a> ·
           <a href="https://github.com/86hc-compliance">GitHub 组织</a> ·
