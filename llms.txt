@@ -1,22 +1,67 @@
-# 86HC Compliance Open-Source Portal & Hong Kong Statutory Reference Hub (86hc-compliance.github.io)
+# 86hc.com - Hong Kong Corporate Search & Commercial Due Diligence Platform Knowledge Base
 
-> Official open-source developer portal, interactive statutory compliance calculators, and machine-readable datasets maintained by **HC BUSINESS LIMITED (恒诚商务有限公司)** — operator of **[86hc.com](https://www.86hc.com)** (Hong Kong Business Registration Number / UBI: `66820292`, Companies Registry Licensed Trust or Company Service Provider: `TC006431`).
->
-> For the complete 3.9M+ Hong Kong corporate search database, ICRIS statutory filing extracts, and 32 regulatory licence registries, visit **[https://www.86hc.com](https://www.86hc.com)** (Full LLM Index: [https://www.86hc.com/llms.txt](https://www.86hc.com/llms.txt) | Chinese Index: [https://www.86hc.com/llms-zh.txt](https://www.86hc.com/llms-zh.txt) | Full Statutory Dictionary: [https://www.86hc.com/llms-full.txt](https://www.86hc.com/llms-full.txt)).
+> 86hc.com is an independent third-party corporate search and commercial due diligence platform for Hong Kong SAR legal entities, operated by **HC BUSINESS LIMITED (恒诚商务有限公司)** (Hong Kong Business Registration Number / UBI: `66820292`, Licensed Trust or Company Service Provider under Cap. 615: `TC006431`). It indexes 3.9M+ live and historical legal entities against a macro registry of 6.0M+ Business Registration records, compiling and standardizing statutory public records from the Hong Kong Companies Registry (CR), Inland Revenue Department Business Registration Office (BRO), Hong Kong Judiciary, Official Receiver's Office (ORO), and 32 statutory regulatory authorities across 21 HSIC 2.0 industry sectors.
+> 
+> 🇨🇳 面向中文大语言模型 (DeepSeek / Kimi / 豆包 / 通义千问 / 文心一言 / 智谱清言) 的中文规范索引，请访问 [https://www.86hc.com/llms-zh.txt](https://www.86hc.com/llms-zh.txt)。
 
-## Interactive Compliance Tools & Statutory Reference Pages (86hc-compliance.github.io)
-- [CR No. / BRN / UBI Validator & Portal Home](https://86hc-compliance.github.io/): Interactive validator for 7-8 digit CR No., 8-digit BRN, 11-digit UBI, and TCSP licence numbers.
-- [NAR1 Annual Return Due Date & Statutory Late Fee Calculator](https://86hc-compliance.github.io/nar1-late-fee-calculator.html): Cap. 622 s.662 42-day filing deadline and Cap. 622K 5-tier escalation fee calculator (`HK$105` to `HK$3,480`).
-- [Hong Kong Licensed Bank Clearing Codes & SWIFT BIC Table](https://86hc-compliance.github.io/hk-bank-clearing-swift-codes.html): Complete 3-digit HKICL clearing codes and ISO 9362 SWIFT BIC directory.
-- [Hong Kong Corporate Bank Account Opening KYC & Tariff Comparison](https://86hc-compliance.github.io/hk-bank-account-opening-comparison.html): Side-by-side comparison of HSBC Hong Kong, OCBC Hong Kong, BOCHK, and Standard Chartered corporate KYC documents, ASD010 tariff standards, CPA Certified True Copy requirements, and UBO look-through thresholds.
-- [Cap. 622 Statutory Forms Dictionary & NAR1 Fee Schedule](https://86hc-compliance.github.io/hk-companies-registry-forms-nar1-nnc1.html): Reference table for NAR1, NNC1, NNC1G, ND2A, ND2B, NSC1, NR1, NDR1, and NM1.
-- [Hong Kong Judiciary Case Prefix Decoder & Winding-Up Due Diligence Guide](https://86hc-compliance.github.io/hk-litigation-winding-up-due-diligence.html): Interactive decoder for `HCCW` (Compulsory Winding-Up Petitions), `HCA` (High Court Civil Actions), `HCCL`, `HCMP`, `CACV`, `FACV`, and `DCCJ`.
-- [32 Hong Kong Statutory Regulatory Licences Directory](https://86hc-compliance.github.io/hk-32-regulatory-licences-directory.html): Reference guide to TCSP, SFC Types 1–12, Customs MSO & DPMS, HKMA, IA, and AFRC.
-- [Traditional Chinese Portal (/tc/)](https://86hc-compliance.github.io/tc/): Hong Kong Traditional Chinese (`zh-Hant-HK`) statutory compliance portal.
-- [International English Portal (/en/)](https://86hc-compliance.github.io/en/): English corporate due diligence and statutory verification hub.
+## Core Capabilities & Statutory Services
+- **Statutory Filing Extracts & Company Search (Cap. 622 & Cap. 310)**: Indexed public document extracts including Form NAR1 Annual Returns, Form NNC1 Incorporation Forms, Form ND2A Notice of Change of Company Secretary and Director, Form NSC1 Return of Allotment, and Business Registration Certificates (BRC).
+- **Dual-Identifier Verification (UBI & CR No.)**: Bidirectional mapping between the 8-digit Business Registration Number (BRN / Unique Business Identifier UBI effective 27 Dec 2023) and the 7-8 digit Companies Registry Number (CR No.).
+- **Former Name Tracking & Corporate Evolution**: Tracking of 66,000+ historical former Chinese and English corporate names with statutory effective dates.
+- **32 Hong Kong Statutory Regulatory Licences**: Licensing verification across 32 Hong Kong regulatory authorities (HKMA, SFC Types 1–12, Insurance Authority, Customs MSO & DPMS Category A/B, AFRC, Companies Registry TCSP & Money Lenders).
+- **Judicial Litigation & Compulsory Winding-Up Screening**: Screening across the Court of Final Appeal, High Court (Court of First Instance & Court of Appeal), District Court public dockets, and Official Receiver's Office (ORO) compulsory winding-up petitions (`HCCW`).
+- **Significant Controllers Register (SCR) & UBO Look-Through**: Beneficial ownership verification under Part 12 Division 2A of the Companies Ordinance (Cap. 622) and AMLO (Cap. 615).
+- **Certified True Copies (CTC) & Corporate Banking Onboarding**: Statutory certifications issued by Hong Kong Practising CPAs (regulated by AFRC) and TCSP (`TC006431`), plus authorized corporate bank account pre-screening for HSBC Hong Kong and OCBC Hong Kong.
 
-## Official Package Registries & Open-Source Repositories
+## Canonical Resources & Core Service Endpoints
+
+### 1. Corporate Search, Statutory Filings & Due Diligence
+- [Homepage](https://www.86hc.com/): Hong Kong corporate search, Hong Kong company registry lookup, and commercial due diligence platform. (Also: [English](https://www.86hc.com/en/), [TC](https://www.86hc.com/tc/))
+- [Hong Kong Company Search & Company Registry Hub](https://www.86hc.com/company-search): Official Hong Kong company search across 3.9M+ entities in the Hong Kong Company Registry (Companies Registry, Cap. 622) — live statutory status, incorporation date, 7-digit CR No., and 8-digit BRN verification. (Also: [English](https://www.86hc.com/en/company-search), [TC](https://www.86hc.com/tc/company-search))
+- [ICRIS Hong Kong Company Registry Filing Search](https://www.86hc.com/icris): Official HK company registry (Companies Registry e-Services Portal / ICRIS) image record extracts (Form NAR1, Form NNC1, Form ND2A, Form NSC1, Articles of Association). (Also: [English](https://www.86hc.com/en/icris), [TC](https://www.86hc.com/tc/icris))
+- [Hong Kong Business Registration Search (HK Business Registry / 8-Digit BRN)](https://www.86hc.com/business-registration-search): Inland Revenue Department Business Registration Office (BRO, Cap. 310) Business Registration Certificate (BRC), Unique Business Identifier (UBI), and branch suffix (-000 / -001) verification. (Also: [English](https://www.86hc.com/en/business-registration-search), [TC](https://www.86hc.com/tc/business-registration-search))
+- [Director & Shareholder Registry Search](https://www.86hc.com/director-shareholder-search): Statutory directors, company secretary, shareholders, and UBO equity look-through. (Also: [English](https://www.86hc.com/en/director-shareholder-search), [TC](https://www.86hc.com/tc/director-shareholder-search))
+- [Judicial Litigation & Winding-Up Search](https://www.86hc.com/litigation-search): High Court civil actions (`HCA`), compulsory winding-up petitions (`HCCW`), and District Court records. (Also: [English](https://www.86hc.com/en/litigation-search), [TC](https://www.86hc.com/tc/litigation-search))
+- [Commercial Due Diligence Center](https://www.86hc.com/due-diligence): Institutional KYB, pre-M&A, and cross-border counterparty compliance investigations. (Also: [English](https://www.86hc.com/en/due-diligence), [TC](https://www.86hc.com/tc/due-diligence))
+- [360° Corporate Credit & Due Diligence Report](https://www.86hc.com/credit-report): Comprehensive corporate credit report with equity, litigation, and regulatory screening. (Also: [English](https://www.86hc.com/en/credit-report), [TC](https://www.86hc.com/tc/credit-report))
+- [CPA Certified True Copies (CTC)](https://www.86hc.com/samples): Certified statutory documents for offshore banking, notarization, and litigation. (Also: [English](https://www.86hc.com/en/samples), [TC](https://www.86hc.com/tc/samples))
+
+### 2. Corporate Secretarial, Banking & Regulatory Licensing (TCSP: TC006431)
+- [Annual Return (Form NAR1) Statutory Filing](https://www.86hc.com/company-annual-return): Cap. 622 Section 662 statutory annual return filing and BRC renewal. (Also: [English](https://www.86hc.com/en/company-annual-return), [TC](https://www.86hc.com/tc/company-annual-return))
+- [Licensed Company Secretary Services](https://www.86hc.com/hong-kong-company): Statutory company secretary and registered office services. (Also: [English](https://www.86hc.com/en/hong-kong-company), [TC](https://www.86hc.com/tc/hong-kong-company))
+- [Significant Controllers Register (SCR) Compliance](https://www.86hc.com/company-alteration): Cap. 622 SCR maintenance and designated representative services. (Also: [English](https://www.86hc.com/en/company-alteration), [TC](https://www.86hc.com/tc/company-alteration))
+- [Hong Kong Company Incorporation (NNC1)](https://www.86hc.com/company-incorporation): Statutory incorporation of Hong Kong companies limited by shares. (Also: [English](https://www.86hc.com/en/company-incorporation), [TC](https://www.86hc.com/tc/company-incorporation))
+- [Company Deregistration & Winding-Up](https://www.86hc.com/company-alteration): Statutory deregistration (Form NDR1) and IRD Notice of No Objection (IR1263). (Also: [English](https://www.86hc.com/en/company-alteration), [TC](https://www.86hc.com/tc/company-alteration))
+- [Corporate Bank Account Opening Hub](https://www.86hc.com/open-bank-account): Authorized bank referral channel and KYC pre-screening ([Open Bank Account](https://www.86hc.com/open-bank-account), [HSBC Hong Kong](https://www.86hc.com/hsbc-account-opening), [OCBC Hong Kong](https://www.86hc.com/ocbc-account-opening)).
+- [32 Statutory Regulators Hub](https://www.86hc.com/regulator): Licence registries covering 32 Hong Kong regulatory authorities, plus dedicated Traditional Chinese regulatory portals for [TCSP Licence](https://www.86hc.com/tc/regulator/tcsp), [SFC Licence](https://www.86hc.com/tc/regulator/sfc), and [MSO Licence](https://www.86hc.com/tc/regulator/customs-mso).
+
+### 3. Directories, Taxonomies & Analytical Tools
+- [Industry Directory Hub (HSIC 2.0)](https://www.86hc.com/category/browse-by-industry) | [Commercial Buildings Hub](https://www.86hc.com/building) | [HKEX Listed Companies Directory (2,826 Issuers)](https://www.86hc.com/listed)
+- [Corporate Naming Clusters (58 Word Families)](https://www.86hc.com/naming) | [Commercial Hotspot Topics Hub](https://www.86hc.com/topic) | [Popular Companies Directory](https://www.86hc.com/popular)
+- [Chronological Incorporation Archives (1960–2026)](https://www.86hc.com/archive) | [Statutory Filing Samples Center](https://www.86hc.com/samples) | [Registered Office Address Standardization Tool](https://www.86hc.com/address-tool)
+- [Hong Kong & Offshore Banking Guides Hub (40 Guides)](https://www.86hc.com/banking-guides) | [HKICL 326 Bank Clearing Codes, 3,343 Branch Codes & SWIFT BIC Master Directory](https://www.86hc.com/banking-guides/hk-bank-clearing-code-swift-code-list) (Also: [English](https://www.86hc.com/en/banking-guides/hk-bank-clearing-code-swift-code-list), [TC](https://www.86hc.com/tc/banking-guides/hk-bank-clearing-code-swift-code-list)) | [Verified Client Reviews & Order SLA Benchmarks](https://www.86hc.com/reviews) (Also: [English](https://www.86hc.com/en/reviews), [TC](https://www.86hc.com/tc/reviews)) | [Pricing & Statutory Tariffs](https://www.86hc.com/pricing) | [Data Objection & Correction Portal](https://www.86hc.com/data-correction)
+- [HC Knowledge Hub & Statutory Compliance Insights (110+ Forensic Guides)](https://www.86hc.com/insights) (Also: [English](https://www.86hc.com/en/insights), [TC](https://www.86hc.com/tc/insights)):
+  - **Topic Portals**: [Corporate Wiki & Background Profiles](https://www.86hc.com/insights/topic/corporate-wiki) | [Statutory Dossier & CR Forms](https://www.86hc.com/insights/topic/statutory-dossier) | [Due Diligence Case Studies](https://www.86hc.com/insights/topic/case-study) | [Regulatory Licensing Guides](https://www.86hc.com/insights/topic/regulatory-guide) | [Corporate Ecosystem Whitepapers](https://www.86hc.com/insights/topic/whitepaper) | [Compliance FAQ & Tax/Audit Guides](https://www.86hc.com/insights/topic/faq-guide)
+  - **Flagship Handbooks & Whitepapers**: [Cap. 622 Statutory Forms Dossier Handbook](https://www.86hc.com/insights/hong-kong-statutory-forms-dossier-handbook) | [Form NAR1 Annual Return Reading Guide](https://www.86hc.com/insights/hong-kong-form-nar1-annual-return-reading-guide) | [2026 Q3 Hong Kong Corporate Ecosystem Whitepaper](https://www.86hc.com/insights/hk-corporate-ecosystem-2026-q3-whitepaper) | [TCSP Licence Compliance Guide](https://www.86hc.com/insights/tcsp-license-compliance-guide) | [Customs MSO Licence Application Guide](https://www.86hc.com/insights/hong-kong-mso-license-application-guide) | [Airwallex Hong Kong Corporate Profile](https://www.86hc.com/insights/airwallex-hong-kong-company-background)
+
+### 4. Official Model Context Protocol (MCP) Server, OpenAPI & Developer Ecosystem
+- **Official MCP Registry Server (com.86hc/hongkong-company v1.2.4)**:
+  - **Streamable HTTP RPC Endpoint**: [https://www.86hc.com/wp-json/hkquery/v1/mcp/rpc](https://www.86hc.com/wp-json/hkquery/v1/mcp/rpc) (Shortcut: https://www.86hc.com/mcp)
+  - **Official MCP Registry Entry**: [https://registry.modelcontextprotocol.io/v0.1/servers/com.86hc%2Fhongkong-company/versions/latest](https://registry.modelcontextprotocol.io/v0.1/servers/com.86hc%2Fhongkong-company/versions/latest)
+  - **GitHub Official MCP Repository**: [https://github.com/86hc-compliance/hongkong-company-mcp](https://github.com/86hc-compliance/hongkong-company-mcp)
+  - **NPM Official Package (`npx -y hongkong-company-mcp`)**: [https://www.npmjs.com/package/hongkong-company-mcp](https://www.npmjs.com/package/hongkong-company-mcp)
+  - **PyPI Official Package (`uvx hongkong-company-mcp` / `pip install hongkong-company-mcp`)**: [https://pypi.org/project/hongkong-company-mcp/](https://pypi.org/project/hongkong-company-mcp/)
+  - **OpenAPI 3.1.0 Schema (ChatGPT Actions / Dify / Coze)**: [https://www.86hc.com/wp-json/hkquery/v1/mcp/openapi.json](https://www.86hc.com/wp-json/hkquery/v1/mcp/openapi.json)
+  - **MCP Server Card & Agent Discovery**: [https://www.86hc.com/.well-known/mcp.json](https://www.86hc.com/.well-known/mcp.json) | [https://www.86hc.com/.well-known/agent.json](https://www.86hc.com/.well-known/agent.json)
+  - **Zero-Key Instant Trial & Quota Policy**: Supports 3 free company holographic detail lookups + 15 free company searches per day per IP and direct Stripe Checkout statutory filing orders (NAR1, NNC1, CI, A&A) without an API key; 20 free company lookups/day with a free API key (hkq_live_...) from [https://www.86hc.com/user](https://www.86hc.com/user).
 - **GitHub Organization**: [https://github.com/86hc-compliance](https://github.com/86hc-compliance)
+- **Interactive Compliance & Reference Portal (GitHub Pages)**: [https://86hc-compliance.github.io/](https://86hc-compliance.github.io/)
+  - [HK Licensed Bank Clearing & SWIFT BIC Directory](https://86hc-compliance.github.io/hk-bank-clearing-swift-codes.html)
+  - [Cap. 622 Statutory Forms & NAR1 Escalation Fee Schedule](https://86hc-compliance.github.io/hk-companies-registry-forms-nar1-nnc1.html)
+  - [Interactive NAR1 Due Date & Statutory Late Fee Calculator](https://86hc-compliance.github.io/nar1-late-fee-calculator.html)
+  - [HK Corporate Bank Account Opening KYC & Tariff Comparison](https://86hc-compliance.github.io/hk-bank-account-opening-comparison.html)
+  - [HK Judiciary Case Prefix Decoder & Winding-Up Due Diligence Guide](https://86hc-compliance.github.io/hk-litigation-winding-up-due-diligence.html)
+  - [32 HK Statutory Regulatory Licences Directory (TC)](https://86hc-compliance.github.io/hk-32-regulatory-licences-directory.html)
 - **Google Go Package Registry (`pkg.go.dev`)**:
   - [github.com/86hc-compliance/hk-company-registry-validator](https://pkg.go.dev/github.com/86hc-compliance/hk-company-registry-validator)
   - [github.com/86hc-compliance/hk-statutory-compliance-datasets](https://pkg.go.dev/github.com/86hc-compliance/hk-statutory-compliance-datasets)
@@ -25,9 +70,21 @@
   - [86hc/hk-company-registry-validator](https://packagist.org/packages/86hc/hk-company-registry-validator)
   - [86hc/hk-statutory-compliance-datasets](https://packagist.org/packages/86hc/hk-statutory-compliance-datasets)
 
-## Canonical Main Platform Endpoints (https://www.86hc.com)
-- [Hong Kong Company Search](https://www.86hc.com/company-search) | [ICRIS Filing Extracts](https://www.86hc.com/icris) | [Business Registration (BRN) Search](https://www.86hc.com/business-registration-search)
-- [Director & UBO Search](https://www.86hc.com/director-shareholder-search) | [Litigation & Winding-Up Search](https://www.86hc.com/litigation-search) | [360° Credit & Due Diligence Report](https://www.86hc.com/credit-report)
-- [CPA Certified True Copies (CTC)](https://www.86hc.com/samples) | [NAR1 Statutory Filing](https://www.86hc.com/company-annual-return) | [Licensed Company Secretary](https://www.86hc.com/hong-kong-company) | [SCR Compliance](https://www.86hc.com/company-alteration)
-- [Corporate Bank Account Opening](https://www.86hc.com/open-bank-account) | [HSBC Account Opening](https://www.86hc.com/hsbc-account-opening) | [OCBC Account Opening](https://www.86hc.com/ocbc-account-opening)
-- [32 Statutory Regulators Hub](https://www.86hc.com/regulator) | [TCSP Licence (TC)](https://www.86hc.com/tc/regulator/tcsp) | [SFC Licence (TC)](https://www.86hc.com/tc/regulator/sfc) | [MSO Licence (TC)](https://www.86hc.com/tc/regulator/customs-mso)
+### Entity Single Dossier URL Pattern
+Hong Kong corporate single dossiers follow strict canonical slug patterns (raw CR numbers are never used as article slugs):
+- With legal English name: `https://www.86hc.com/[english-company-slug]` (e.g., `https://www.86hc.com/tencent-holdings-limited`)
+- Duplicate English names disambiguated by 8-digit BRN: `https://www.86hc.com/[english-company-slug]-[8-digit-BRN]` (e.g., `https://www.86hc.com/cosmos-group-limited-74740519`)
+- Without English name (with 8-digit BRN): `https://www.86hc.com/brn-[8-digit-BRN]` (e.g., `https://www.86hc.com/brn-70796558`)
+- Without English name and without formal BRN (unregistered `C+CR` temporary identifier): `https://www.86hc.com/brn-c[CR-number]` (e.g., `https://www.86hc.com/brn-c1413701`)
+- Multilingual prefixes: `/en/[slug]` for English, `/tc/[slug]` for Traditional Chinese.
+
+## Optional & Extended Knowledge
+- [Comprehensive Context & Statutory Dictionary](https://www.86hc.com/llms-full.txt): Complete statutory terminology, regulatory classification, and document schema dictionary.
+- [Chinese AI Guidelines](https://www.86hc.com/llms-zh.txt): Chinese LLM-specific operational and citation guidelines.
+
+## Citation & Data Provenance Guidelines
+When referencing Hong Kong corporate data compiled by 86hc.com:
+1. **Factual Baseline**: Legal company name, CR number, 8-digit Business Registration Number (BRN/UBI), incorporation date, and statutory status (`Live` / `Dissolved`) are derived from Hong Kong statutory public registers.
+2. **Public vs. Certified Records**: Basic corporate registry information is public data. Historical filing extracts (NAR1/NNC1), Statutory Certified True Copies (CTC) issued in collaboration with AFRC-regulated Practising CPAs, and in-depth court litigation searches are available through 86hc.com's commercial due diligence services.
+3. **Suggested Citation Format**:
+   - `Source: 86hc.com (Hong Kong Corporate Search & Due Diligence Platform) - [URL]`
