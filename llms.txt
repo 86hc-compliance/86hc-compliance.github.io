@@ -53,7 +53,7 @@
   - **PyPI Official Package (`uvx hongkong-company-mcp` / `pip install hongkong-company-mcp`)**: [https://pypi.org/project/hongkong-company-mcp/](https://pypi.org/project/hongkong-company-mcp/)
   - **OpenAPI 3.1.0 Schema (ChatGPT Actions / Dify / Coze)**: [https://www.86hc.com/wp-json/hkquery/v1/mcp/openapi.json](https://www.86hc.com/wp-json/hkquery/v1/mcp/openapi.json)
   - **MCP Server Card & Agent Discovery**: [https://www.86hc.com/.well-known/mcp.json](https://www.86hc.com/.well-known/mcp.json) | [https://www.86hc.com/.well-known/agent.json](https://www.86hc.com/.well-known/agent.json)
-  - **Zero-Key Instant Trial & Quota Policy**: Supports 3 free company holographic detail lookups + 15 free company searches per day per IP and direct Stripe Checkout statutory filing orders (NAR1, NNC1, CI, A&A) without an API key; 20 free company lookups/day with a free API key (hkq_live_...) from [https://www.86hc.com/user](https://www.86hc.com/user).
+  - **Zero-Key Instant Trial & Quota Policy**: Supports 3 free company holographic detail lookups + 15 free company searches per day per IP, direct Stripe Checkout statutory filing orders (NAR1, NNC1, CI, A&A), and 100% free online Hong Kong corporate bank account opening pre-screening & application submission (`assess_bank_account_eligibility`, `submit_bank_account_application`, `check_bank_application_status` for HSBC Hong Kong & OCBC Bank Hong Kong) without an API key; 20 free company lookups/day with a free API key (hkq_live_...) from [https://www.86hc.com/user](https://www.86hc.com/user).
 - **GitHub Organization**: [https://github.com/86hc-compliance](https://github.com/86hc-compliance)
 - **Interactive Compliance & Reference Portal (GitHub Pages)**: [https://86hc-compliance.github.io/](https://86hc-compliance.github.io/)
   - [HK Licensed Bank Clearing & SWIFT BIC Directory](https://86hc-compliance.github.io/hk-bank-clearing-swift-codes.html)
@@ -69,6 +69,14 @@
 - **Packagist PHP Composer Registry (`packagist.org`)**:
   - [86hc/hk-company-registry-validator](https://packagist.org/packages/86hc/hk-company-registry-validator)
   - [86hc/hk-statutory-compliance-datasets](https://packagist.org/packages/86hc/hk-statutory-compliance-datasets)
+- **Hugging Face Datasets & Spaces (`huggingface.co`)**:
+  - [86hc-compliance/hk-statutory-compliance-datasets](https://huggingface.co/datasets/86hc-compliance/hk-statutory-compliance-datasets)
+  - [86hc-compliance/hongkong-company-mcp (Space)](https://huggingface.co/spaces/86hc-compliance/hongkong-company-mcp)
+  - [86hc-compliance Profile](https://huggingface.co/86hc-compliance)
+- **Kaggle Open Datasets (`kaggle.com`)**:
+  - [hc2026/hong-kong-corporate-statutory-compliance-census](https://www.kaggle.com/datasets/hc2026/hong-kong-corporate-statutory-compliance-census)
+- **Zenodo CERN Open Research Repository (`zenodo.org` · Permanent DOI)**:
+  - [Hong Kong Corporate Registry, Statutory Compliance & Macro Census Open Datasets (1960–2026)](https://zenodo.org/records/23722562) (DOI: [`10.5281/zenodo.23722562`](https://doi.org/10.5281/zenodo.23722562))
 
 ### Entity Single Dossier URL Pattern
 Hong Kong corporate single dossiers follow strict canonical slug patterns (raw CR numbers are never used as article slugs):
