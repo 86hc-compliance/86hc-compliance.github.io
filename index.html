@@ -312,14 +312,22 @@
     .card-link:hover {
       text-decoration: underline;
     }
-    table {
+    .table-wrap {
       width: 100%;
-      border-collapse: collapse;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       background: var(--surface);
       border: 1px solid var(--border-subtle);
       border-radius: 10px;
-      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
       font-size: 14px;
+    }
+    tr:last-child td {
+      border-bottom: none;
     }
     th, td {
       padding: 12px 16px;
@@ -351,9 +359,10 @@
         <span class="brand-title">恒诚商务 · 香港企业查册与商业合规开放门户</span>
       </a>
       <nav class="nav-links">
-        <a href="https://www.86hc.com" class="btn-secondary">简体中文 (/)</a>
-        <a href="https://www.86hc.com/tc/" class="btn-secondary">繁體中文 (/tc/)</a>
-        <a href="https://www.86hc.com/en/" class="btn-secondary">English (/en/)</a>
+        <a href="https://86hc-compliance.github.io/nar1-late-fee-calculator.html" class="btn-secondary">NAR1 罚款计算器</a>
+        <a href="https://86hc-compliance.github.io/hk-bank-clearing-swift-codes.html" class="btn-secondary">银行清算编号</a>
+        <a href="https://86hc-compliance.github.io/tc/" class="btn-secondary">繁體中文 (/tc/)</a>
+        <a href="https://86hc-compliance.github.io/en/" class="btn-secondary">English (/en/)</a>
         <a href="https://github.com/86hc-compliance" class="btn-secondary">GitHub 组织</a>
         <a href="https://www.86hc.com/company-search" class="btn-primary">进入香港公司查册中心 →</a>
       </nav>
@@ -537,7 +546,8 @@
     <div class="container">
       <h2>三、香港持牌商业银行清算编号 (Clearing Code) &amp; 法定监管牌照速查表</h2>
       <p class="section-sub">支持跨境汇款、FPS 转数快及审计询证函核验的香港主流持牌银行法定编号对照表。</p>
-      <table>
+      <div class="table-wrap">
+        <table>
         <thead>
           <tr>
             <th>银行编号 (Clearing Code)</th>
@@ -599,6 +609,21 @@
           </tr>
         </tbody>
       </table>
+      </div>
+
+      <div style="margin-top: 24px; padding: 20px; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 10px;">
+        <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">本站开源合规工具与专题速查（GitHub Pages 直达）</h3>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="https://86hc-compliance.github.io/nar1-late-fee-calculator.html" class="btn-secondary">NAR1 逾期罚款计算器</a>
+          <a href="https://86hc-compliance.github.io/hk-bank-clearing-swift-codes.html" class="btn-secondary">银行清算编号 &amp; SWIFT BIC</a>
+          <a href="https://86hc-compliance.github.io/hk-bank-account-opening-comparison.html" class="btn-secondary">香港主要银行开户对比</a>
+          <a href="https://86hc-compliance.github.io/hk-companies-registry-forms-nar1-nnc1.html" class="btn-secondary">Cap. 622 法定表格 &amp; 罚款阶梯</a>
+          <a href="https://86hc-compliance.github.io/hk-litigation-winding-up-due-diligence.html" class="btn-secondary">法院诉讼与清盘查册指引</a>
+          <a href="https://86hc-compliance.github.io/hk-32-regulatory-licences-directory.html" class="btn-secondary">32 家法定监管机构名册</a>
+          <a href="https://86hc-compliance.github.io/tc/" class="btn-secondary">繁體中文合規門戶 (/tc/)</a>
+          <a href="https://86hc-compliance.github.io/en/" class="btn-secondary">English Portal (/en/)</a>
+        </div>
+      </div>
 
       <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="https://www.86hc.com/regulator" class="btn-secondary">🏛️ 香港 32 家监管名册总览</a>
@@ -650,6 +675,12 @@
       }
       panel.innerHTML = '❌ <strong>格式不符合标准</strong>：香港公司编号须为 7-8 位纯数字，商业登记号码须包含 8 位基础数字（如 <span class="code-mono">66820292</span> 或 <span class="code-mono">66820292-000</span>）。 <a href="https://www.86hc.com/company-search" class="card-link">按公司名称模糊查册 →</a>';
     }
+    document.getElementById('identInput').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        runValidation();
+      }
+    });
     runValidation();
   </script>
 </body>
